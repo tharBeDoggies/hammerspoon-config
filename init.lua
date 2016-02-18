@@ -56,8 +56,51 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Down", function()
   win:setFrame(f)
 end)
 
--- full window (not 'full screen')
+-- snap to right lower corner
+hs.hotkey.bind({"alt", "ctrl"}, "Down", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = max.x + (max.w / 2)
+  f.y = max.y + (max.h / 2)
+  f.w = max.w / 2
+  f.h = max.h / 2
+  win:setFrame(f)
+end)
+
+-- snap to left upper corner
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Up", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = max.x / 2
+  f.y = max.y / 2
+  f.w = max.w / 2
+  f.h = max.h / 2
+  win:setFrame(f)
+end)
+
+-- snap to right upper corner
+hs.hotkey.bind({"alt", "ctrl"}, "Up", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = max.x + (max.w / 2)
+  f.y = max.y
+  f.w = max.w / 2
+  f.h = max.h / 2
+  win:setFrame(f)
+end)
+
+
+-- full window (not 'full screen')
+hs.hotkey.bind({"alt", "ctrl"}, "F", function()
   local win = hs.window.focusedWindow()
   --local f = win:frame() testing colon syntax stuff
   local f = hs.window.frame(win)
