@@ -6,8 +6,8 @@ local grid = require "hs.grid"
 
 grid.MARGINX = 0
 grid.MARGINY = 0
-grid.GRIDHEIGHT = 13
-grid.GRIDWIDTH = 13
+grid.GRIDHEIGHT = 20
+grid.GRIDWIDTH = 20
 
 -----------------------------------------------------------------------------
 -- window management
@@ -121,10 +121,12 @@ hs.hotkey.bind({"alt", "ctrl"}, "Left", grid.resizeWindowThinner)
 -- move windows
 hs.hotkey.bind({"alt", "ctrl", "shift"}, "Right", grid.pushWindowRight)
 hs.hotkey.bind({"alt", "ctrl", "shift"}, "Left", grid.pushWindowLeft)
+hs.hotkey.bind({"alt", "ctrl", "shift"}, "Up", grid.pushWindowUp)
+hs.hotkey.bind({"alt", "ctrl", "shift"}, "Down", grid.pushWindowDown)
 
 
 -----------------------------------------------------------------------------
--- other stuff 
+-- other stuff
 -----------------------------------------------------------------------------
 
 -- display battery percentage
